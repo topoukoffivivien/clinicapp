@@ -1,5 +1,5 @@
 <template>
-    <div class="container" style="height: 100vh">
+    <div class="container" style="height: 100vh;">
         <div class="row h-100">
             <div class="col my-auto" style="width: 700px; height: 700px">
                 <div class="card h-100">
@@ -93,5 +93,5 @@ const actionState = computed(() => ({
     padding-block: 15px;
     flex: 1;
     overflow: auto;
-}
+};
 </style>
