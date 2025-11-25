@@ -6,24 +6,16 @@
                     <div class="card-header">
                         <h1 class="card-title">CONFIGURATION DE CLINIC APP</h1>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <StepItems
                             :steps="{
                                 currentStep: currentStep,
                                 items: stepItems,
                             }"
                         />
-                        <div class="stepper-forms">
-                            <div v-if="currentStep === 1">
-                                <h3>Formulaire étape 1</h3>
-                            </div>
-                            <div v-if="currentStep === 2">
-                                <h3>Formulaire étape 2</h3>
-                            </div>
-                            <div v-if="currentStep === 3">
-                                <h3>Formulaire étape 3</h3>
-                            </div>
-                        </div>
+                        
+                        <StepForm :current-step="currentStep" />
+                        
                     </div>
                     <div class="card-footer">
                         <div
@@ -53,6 +45,8 @@
 <script setup>
 import { computed, reactive, ref } from "vue";
 import StepItems from "./step-items/StepItems.vue";
+import StepForm from "./step-forms/Step-form.vue";
+
 const props = defineProps({
     username: String,
 });
@@ -62,7 +56,7 @@ const currentStep = ref(1);
 const stepItems = computed(() => [
     {
         id: 1,
-        title: "Configuration de base",
+        title: "information générale",
         progress: 0,
     },
     {
@@ -94,4 +88,10 @@ const actionState = computed(() => ({
 }));
 </script>
 
-<style scoped></style>
+<style scoped>
+.stepper-forms {
+    padding-block: 15px;
+    flex: 1;
+    overflow: auto;
+}
+</style>
